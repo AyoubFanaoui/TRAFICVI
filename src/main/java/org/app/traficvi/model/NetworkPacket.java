@@ -1,53 +1,62 @@
 package org.app.traficvi.model;
 
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleLongProperty;
+import javafx.beans.property.SimpleStringProperty;
+
 public class NetworkPacket {
-    private String sourcIP;
-    private String destinationIP;
-    private int size;
-    private long timestamp;
+    private final SimpleStringProperty sourceIP;
+    private final SimpleStringProperty destinationIP;
+    private final SimpleLongProperty size;
+    private final SimpleStringProperty protocole;
+    private final SimpleIntegerProperty port;
+    private final SimpleStringProperty PacketContent;
+    private final SimpleStringProperty timestamp;
 
 
 
-    public NetworkPacket(String sourcIP, String destinationIP, int size, long timestamp) {
-        this.sourcIP = sourcIP;
-        this.destinationIP = destinationIP;
-        this.size = size;
-        this.timestamp = timestamp;
+    public NetworkPacket(String sourceIP, String destinationIP, int size,  String timestamp, String protocole,Integer port ,String packetContent) {
+        this.sourceIP = new SimpleStringProperty(sourceIP);
+        this.destinationIP = new SimpleStringProperty(destinationIP);
+        this.size = new SimpleLongProperty(size);
+        this.timestamp = new SimpleStringProperty(timestamp);
+        this.protocole = new SimpleStringProperty(protocole);
+        this.PacketContent = new SimpleStringProperty(packetContent);
+        this.port = new SimpleIntegerProperty(port);
     }
 
-    public String getSourcIP() {
-        return sourcIP;
-    }
-
-    public void setSourcIP(String sourcIP) {
-        this.sourcIP = sourcIP;
+    public String getSourceIP() {
+        return sourceIP.get();
     }
 
     public String getDestinationIP() {
-        return destinationIP;
+        return destinationIP.get();
     }
 
-    public void setDestinationIP(String destinationIP) {
-        this.destinationIP = destinationIP;
+    public long getSize() {
+        return size.get();
     }
 
-    public int getSize() {
-        return size;
+    public String getTimestamp() {
+        return timestamp.get();
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public String getProtocole() {
+        return protocole.get();
+    }
+    public String getPacketContent() {
+        return PacketContent.get();
     }
 
-    public long getTimestamp() {
-        return timestamp;
+    public Integer getPort() {
+        return port.get();
     }
 
-    public void setTimestamp(long timestamp) {
-        this.timestamp = timestamp;
-    }
+
 
     public String getPacketInfo() {
-        return "Source: " + sourcIP + ", Destination: "+ destinationIP+", Taille: "+ size+"octets , Timestamp: "+ timestamp;
+        return "Source: " + sourceIP + ", Destination: "+ destinationIP+", Taille: "+ size+"octets , Timestamp: "+ timestamp;
     }
+
+
 }

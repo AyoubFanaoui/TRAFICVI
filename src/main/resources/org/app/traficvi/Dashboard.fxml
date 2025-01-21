@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="436.0" prefWidth="832.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.app.traficvi.controllers.DashboardController">
+    <top>
+        <HBox prefHeight="45.0" prefWidth="866.0" spacing="15" BorderPane.alignment="CENTER">
+            <!-- Interface Selection -->
+            <HBox alignment="BASELINE_LEFT" spacing="8.0" HBox.hgrow="ALWAYS">
+                <children>
+                    <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Interface: " />
+                    <ComboBox fx:id="networkInterfacesComboBox" prefWidth="300.0" />
+                </children>
+            <HBox.margin>
+               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </HBox.margin>
+            </HBox>
+
+            <!-- Start/Stop Capture Buttons -->
+            <HBox spacing="10">
+                <children>
+                    <Button fx:id="startCaptureButton" onAction="#startCapture" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="Start Capture">
+                  <HBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </HBox.margin></Button>
+                    <Button fx:id="stopCaptureButton" disable="true" onAction="#stopCapture" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="Stop Capture">
+                  <HBox.margin>
+                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  </HBox.margin></Button>
+                </children>
+            </HBox>
+        </HBox>
+    </top>
+
+
+    <center>
+        <VBox prefHeight="245.0" prefWidth="824.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <!-- Packet Search Area -->
+            <HBox alignment="CENTER" spacing="15">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Packets: " />
+                <TextField fx:id="protocolSearchField" prefHeight="25.0" promptText="Enter Protocol (e.g., TCP)" style="-fx-font-size: 14px;" />
+            </HBox>
+
+            <!-- TabPane for Traffic Analysis -->
+            <TabPane fx:id="tabPane" />
+
+            <!-- Active Connections Table -->
+            <TableView fx:id="connectionsTable" prefHeight="125.0" prefWidth="827.0" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="sourceIpColumn" text="Source IP" />
+                    <TableColumn fx:id="destIpColumn" text="Destination IP" />
+                    <TableColumn fx:id="tailleColumn" text="Taille (octets)" />
+                    <TableColumn fx:id="ProtocoleColumn" text="Protocole" />
+                    <TableColumn fx:id="portColumn" text="Port" />
+                    <TableColumn fx:id="PacketContent" text="Content" />
+                    <TableColumn fx:id="timestampColumn" text="Horodatage" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+
+
+
+
+
+
+
+    <bottom>
+        <HBox prefHeight="141.0" prefWidth="832.0" spacing="20.0" BorderPane.alignment="CENTER">
+            <!-- Statistics Box -->
+            <VBox prefHeight="310.0" prefWidth="277.0" spacing="10">
+                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Statistiques" />
+                <Label fx:id="totalConnectionsLabel" style="-fx-font-size: 14px;" text="Total Connexions : 0" />
+                <Label fx:id="totalDataTransferredLabel" style="-fx-font-size: 14px;" text="Données Transférées : 0" />
+            <HBox.margin>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+            </HBox.margin>
+            </VBox>
+
+            <!-- Alerts Section -->
+            <VBox prefHeight="165.0" prefWidth="403.0" spacing="10">
+                <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Détails des Alertes d'Intrusion" />
+
+                <AnchorPane minWidth="463.0" prefHeight="229.0">
+
+                    <TableView fx:id="alertTable" layoutY="-2.0" minWidth="452.0" prefHeight="234.0" prefWidth="460.0" style="-fx-border-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="3.0" AnchorPane.topAnchor="-2.0">
+                        <columns>
+                            <TableColumn fx:id="typeColumn" prefWidth="89.00000381469727" text="Type" />
+                            <TableColumn fx:id="InstrusionColumn" minWidth="10.0" prefWidth="66.00000762939453" text="Instrusion " />
+                            <TableColumn fx:id="timestampColumnAlert" minWidth="14.0" prefWidth="99.33332824707031" text="Horodatage" />
+                            <TableColumn fx:id="dangerLevelColumn" minWidth="10.0" prefWidth="260.6667175292969" style="-fx-background-color: lightcoral;" text="Degré de Danger" />
+                        </columns>
+                    </TableView>
+                </AnchorPane>
+
+                <HBox alignment="CENTER" spacing="15">
+                    <Button fx:id="pdfButton" onAction="#generatePDFReport" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" text="PDF Report" />
+                    <Button fx:id="csvButton" onAction="#generateCSVReport" style="-fx-background-color: #f44336; -fx-text-fill: white;" text="CVS Report" />
+                </HBox>
+            <HBox.margin>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </HBox.margin>
+            </VBox>
+        </HBox>
+    </bottom>
+</BorderPane>

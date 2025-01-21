@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21.0.5">
+
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20"/>
+    </padding>
+
+    <!-- Active Connections Section -->
+    <TitledPane collapsible="false" text="Active Connections">
+        <VBox spacing="10">
+            <Label fx:id="activeConnectionsCount" styleClass="stat-label"/>
+            <TableView fx:id="connectionsTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="sourceIpColumn" text="Source IP"/>
+                    <TableColumn fx:id="destIpColumn" text="Destination IP"/>
+                    <TableColumn fx:id="protocolColumn" text="Taille (octets)"/>
+                    <TableColumn fx:id="Horodatage" text="timestampColumn"/>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                </columnResizePolicy>
+            </TableView>
+        </VBox>
+    </TitledPane>
+</VBox>
