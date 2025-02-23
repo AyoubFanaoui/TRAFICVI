@@ -83,7 +83,6 @@ cd TRAFICVI
 ---
 
 ## 📄 Licence
-📜 Ce projet est sous licence MIT - Voir <a href="https://mit-license.org/">LICENSE</a> pour plus d'informations.
+📜 Ce projet est sous licence MIT - Voir LICENSE pour plus d'informations.
 
----
 
