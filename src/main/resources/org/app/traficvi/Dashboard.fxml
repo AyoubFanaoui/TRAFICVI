@@ -37,11 +37,8 @@
 
     <center>
         <VBox prefHeight="245.0" prefWidth="824.0" spacing="10.0" BorderPane.alignment="CENTER">
-            <!-- Packet Search Area -->
-            <HBox alignment="CENTER" spacing="15">
-                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Packets: " />
-                <TextField fx:id="protocolSearchField" prefHeight="25.0" promptText="Enter Protocol (e.g., TCP)" style="-fx-font-size: 14px;" />
-            </HBox>
+
+
 
             <!-- TabPane for Traffic Analysis -->
             <TabPane fx:id="tabPane" />

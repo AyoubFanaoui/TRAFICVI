@@ -47,12 +47,18 @@ public class ReportGenerator implements Reportable {
         }
     }
 
-    private String generateRecommendation(IntrusionAlert alert) {
+    private static String generateRecommendation(IntrusionAlert alert) {
         switch (alert.getType()) {
             case "DoS Attack":
                 return "Recommandation: Vérifiez les paramètres du pare-feu et limitez les connexions simultanées.";
-            case "Port Scan":
-                return "Recommandation: Bloquez les adresses IP suspectes et examinez les ports accessibles.";
+            case "Attaque par amplification UDP détectée":
+                return "Recommandation: Configurez le pare-feu pour bloquer les paquets UDP suspects.";
+            case "Attaque SYN flood détectée":
+                return "Recommandation: Activez les mécanismes de protection contre le SYN flood.";
+            case "Paquet volumineux détecté":
+                return "Recommandation: Examinez la source IP et les détails de la transmission.";
+            case "Contenu sensible détecté":
+                return "Recommandation: Vérifiez les journaux pour des transferts non autorisés.";
             default:
                 return "Aucune recommandation spécifique.";
         }

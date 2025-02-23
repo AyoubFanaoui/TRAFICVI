@@ -36,10 +36,11 @@ public class PacketAnalyzer {
                 if (!alertedIps.contains(packet.getSourceIP())) {
                     alertedIps.add(packet.getSourceIP());
                     alerts.add(new IntrusionAlert(
-                            "Attaque DDoS détectée",
+                            "DoS Attack",
                             "Un grand nombre de paquets provient de la même IP : " + packet.getSourceIP(),
                             System.currentTimeMillis(),
-                            packet
+                            packet,
+                            "Élevé"
                     ));
                 }
                 continue;  // Ignore les autres vérifications une fois l'alerte DDoS déclenchée
@@ -51,7 +52,8 @@ public class PacketAnalyzer {
                         "Attaque par amplification UDP détectée",
                         "Un grand nombre de paquets UDP provient de l'IP : " + packet.getSourceIP(),
                         System.currentTimeMillis(),
-                        packet
+                        packet,
+                        "Élevé"
                 ));
                 continue;  // Ignore les autres vérifications une fois l'alerte d'amplification UDP déclenchée
             }
@@ -62,7 +64,8 @@ public class PacketAnalyzer {
                         "Attaque SYN flood détectée",
                         "Un grand nombre de paquets SYN envoyés depuis l'IP : " + packet.getSourceIP(),
                         System.currentTimeMillis(),
-                        packet
+                        packet,
+                        "Élevé"
                 ));
                 continue;  // Ignore les autres vérifications une fois l'alerte SYN flood déclenchée
             }
@@ -74,7 +77,8 @@ public class PacketAnalyzer {
                         result.getDescription(),
                         result.getRecommendations(),
                         System.currentTimeMillis(),
-                        packet
+                        packet,
+                        "Élevé"
                 ));
                 alertedAlerts.add(alertKey);  // Marquer l'alerte comme émise
             }
@@ -158,14 +162,14 @@ public class PacketAnalyzer {
         }
 
         // Vérifier si l'adresse source ou l'adresse de destination est manquante
-        if (packet.getSourceIP().equals("Not an IP packet") || packet.getDestinationIP().equals("Not an IP packet")) {
+        /*if (packet.getSourceIP().equals("Not an IP packet") || packet.getDestinationIP().equals("Not an IP packet")) {
             return new AnalysisResult(
                     true,
                     "Paquet incomplet détecté",
                     "L'adresse source ou de destination est manquante.",
                     packet.getPort()
             );
-        }
+        }*/
 
         // Détection de paquets volumineux
         if (packet.getSize() > 1000000) {

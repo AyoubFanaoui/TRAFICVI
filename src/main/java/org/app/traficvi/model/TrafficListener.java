@@ -60,6 +60,19 @@ public class TrafficListener implements TrafficCapture {
                     capturedPackets.add(networkPacket);
 
 
+                    if(capturedPackets.size() >= 10) {
+                        // Ajout de paquets de test
+                        capturedPackets.add(new NetworkPacket("Not an IP packet", "192.168.0.2", 500, "2025-01-21 12:00:00", "TCP",80 ,"Données normales"));
+                        capturedPackets.add(new NetworkPacket("192.168.0.3", "192.168.0.4", 2500000, "2025-01-21 12:00:05", "TCP",80 ,"Fichier volumineux suspect"));
+                        capturedPackets.add(new NetworkPacket("192.168.0.5", "192.168.0.6", 400, "2025-01-21 12:00:10", "FTP",80 ,"Protocole FTP détecté"));
+
+                        // Simulation d'une attaque DDoS
+                        for (int i = 0; i < 110; i++) {
+                            capturedPackets.add(new NetworkPacket("192.168.1.1", "192.168.0.2", 100, "2025-01-21 12:00:15", "HTTP",80 ,"Données répétées DDoS"));
+                        }
+                    }
+
+
                     // Analyser le paquet avec PacketAnalyzer
 
                         List<IntrusionAlert> alerts = PacketAnalyzer.analyzePackets(capturedPackets);
