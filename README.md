@@ -1,5 +1,5 @@
 
-# 🚦 Application de Surveillance du Trafic Réseau
+#  Application de Surveillance du Trafic Réseau
 
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white) 
 ![JavaFX](https://img.shields.io/badge/JavaFX-3776AB?style=for-the-badge)  
@@ -9,15 +9,15 @@
 ---
 
 ## 📌 **Table**
-- [📖 Description](#-description)
-- [🎯 Objectifs](#-objectifs)
-- [📜 Fonctionnalités](#-fonctionnalités)
-- [🏛️ Architecture](#-architecture)
-- [🛠️ Technologies Utilisées](#-technologies-utilisées)
-- [📸 Aperçu](#-aperçu)
-- [🚀 Installation](#-installation)
-- [👥 Auteurs](#-auteurs)
-- [📄 Licence](#-licence)
+- [ Description](#-description)
+- [ Objectifs](#-objectifs)
+- [ Fonctionnalités](#-fonctionnalités)
+- [ Architecture](#-architecture)
+- [ Technologies Utilisées](#-technologies-utilisées)
+- [ Aperçu](#-aperçu)
+- [ Installation](#-installation)
+- [ Auteurs](#-auteurs)
+- [ Licence](#-licence)
 
 ---
 
