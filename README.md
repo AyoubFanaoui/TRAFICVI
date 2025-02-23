@@ -14,8 +14,8 @@
 - [📜 Fonctionnalités](#-fonctionnalités)
 - [🏛️ Architecture](#-architecture)
 - [🛠️ Technologies Utilisées](#-technologies-utilisées)
-- [🚀 Installation](#-installation)
 - [📸 Aperçu](#-aperçu)
+- [🚀 Installation](#-installation)
 - [👥 Auteurs](#-auteurs)
 - [📄 Licence](#-licence)
 
@@ -62,17 +62,16 @@ L'application suit le modèle **MVC** (Modèle-Vue-Contrôleur) :
 📂 **Gestion de version** : Git, GitHub  
 
 ---
+📸 Aperçu
+![interface utilisateur](imgs/Screenshot-interface.png)
+
+---
 
 ## 🚀 **Installation**
 1️⃣ **Cloner le dépôt** :
 ```bash
 git clone https://github.com/AyoubFanaoui/TRAFICVI.git
 cd TRAFICVI
-
----
-
-📸 Aperçu
-![interface utilisateur](imgs/Screenshot-interface.png)
 
 ---
 
